@@ -24,25 +24,25 @@
 
 * C
 
-![1] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/1.png)
+![1](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/1.png)
 
 * ASM
 
-![2] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/2.png)
+![2](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/2.png)
 * LOLCODE
-![3] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/3.png)
+![3](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/3.png)
 * PHP
-![4] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/4.png)
+![4](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/4.png)
 * BrainFuck
-![5] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/5.png)
+![5](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/5.png)
 * C#
-![6] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/6.png)
+![6](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/6.png)
 * HTML5
-![7] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/7.png)
+![7](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/7.png)
 * YASL
-![8] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/8.png)
+![8](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/8.png)
 * OCaml
-![9] (https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/9.png)
+![9](https://github.com/hashlyschool/42_PushSwap/blob/main/ImgForReadme/9.png)
 
 
 ## Вступление ##
