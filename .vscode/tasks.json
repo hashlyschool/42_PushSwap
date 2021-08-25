@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "gcc build active file",
+            "command": "clang",
+            "args": [
+                "-g",
+                "${workspaceFolder}*.c",
+                "${workspaceFolder}/main.c",
+                "-o",
+                "${workspaceFolder}/a.out",
+                "-I",
+                "${workspaceFolder}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: /usr/bin/gcc"
+        }
+    ]
+}
