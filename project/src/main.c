@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 	ft_putnbr_fd(len_stack(b), 1);
 	}
 //find max sort substack and push mid, >mid, <mid in stack b
+	
 	//predsort(a, b);
 	//sort(a,b);
 }
