@@ -39,7 +39,7 @@ void	stack_is_sort(t_elem *a)
 	{
 		temp2 = temp1->prev;
 		if (temp1->var > temp2->var)
-			ft_error_malloc(a, ""); //stack is not sort\n
+			return ; //stack is not sort\n
 		temp1 = temp1->prev;
 	}
 	ft_error_malloc(a, ""); //"stack is sort\n"
