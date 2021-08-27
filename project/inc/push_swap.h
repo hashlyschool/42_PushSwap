@@ -36,5 +36,7 @@ void	rotate(t_elem **lst);
 void	rr(t_elem **a, t_elem **b);
 void	rev_rotate(t_elem **lst);
 void	rev_rr(t_elem **a, t_elem **b);
+//predsort
+void	predsort(t_elem **a, t_elem **b);
 
 #endif

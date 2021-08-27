@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	create_lists(&a, &b, argc, argv);
 	check_doubles(a);
 	stack_is_sort(a);
-	//test
+	/*test
 	{
 	push(&a, &b);
 	push(&a, &b);
@@ -64,8 +64,9 @@ int	main(int argc, char **argv)
 	ft_putnbr_fd(len_stack(a), 1);
 	ft_putnbr_fd(len_stack(b), 1);
 	}
+*/
 //find max sort substack and push mid, >mid, <mid in stack b
-	
-	//predsort(a, b);
+	ft_putstr_fd("tut\n", 1);
+	predsort(&a, &b);
 	//sort(a,b);
 }
