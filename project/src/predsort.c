@@ -81,40 +81,45 @@ void	find_max_substack(t_elem **a, t_elem **start, t_elem **end)
 	return ;
 }
 
-char	define_operation(t_elem **a, t_elem **b, t_elem *start, t_elem *end)
+//Эта функция находит средний элемент (не среднее арифметическое!)
+// и делает в нужном элементе списка операцию 'temp->middle = 1;'
+void	find_mid(t_elem *a)
 {
-	char	elem_in_substack;
+	a = 0;
+}//не готово
 
-	elem_in_substack = check_elem_in_substack(a, start, end);
-	push_elem(a, b);
-	return (0);
-}
-
+/*
+Функция принимает ссылки на стек 'a', стек 'b'
+Ф-я должна переносит в стек 'b' все элементы, последовательности, найденной в функции 'find_max_substack'.
+правило переноса в стек 'b': элементы больше среднего, средний элемент, элементы меньше среднего.
+*/
 void	predsort(t_elem **a, t_elem **b)
 {
 	t_elem	*start;
 	t_elem	*end;
 	char	operation;
 
-	find_mid(*a);
-	find_max_substack(a, &start, &end);
-	operation = define_operation(a, b, start, end);
+	//Эта функция находит средний элемент (не среднее арифметическое!)
+	// и делает в нужной элементе списка операцию 'temp->middle = 1;'
+	find_mid(*a);//не готово
+	find_max_substack(a, &start, &end); //готово
+	operation = define_operation(*a, *b, start, end); //не готово
 	while (operation)
 	{
 		if (operation == 1)
-			push(a, b);
+			push(a, b); //готово
 		else if (operation == 2)
-			rotate(a);
+			rotate(a); //готово
 		else if (operation == 3)
-			rotate(b);
+			rotate(b); //готово
 		else if (operation == 4)
-			rr(a, b);
+			rr(a, b); //готово
 		else if (operation == 5)
-			rev_rotate(a);
+			rev_rotate(a); //готово
 		else if (operation == 6)
-			rev_rotate(b);
+			rev_rotate(b); //готово
 		else if (operation == 7)
-			rev_rr(a, b);
-		operation = define_operation(a, b, start, end, mid);
+			rev_rr(a, b); //готово
+		operation = define_operation(*a, *b, start, end);
 	}
 }
