@@ -42,31 +42,14 @@ int	main(int argc, char **argv)
 	check_errors(argc, argv);
 	create_lists(&a, &b, argc, argv);
 	check_doubles(a);
-	stack_is_sort(a);
-	/*test
+	//test
 	{
-	push(&a, &b);
-	push(&a, &b);
-	push(&a, &b);
-	push(&b, &a);
 	print_stack(a);
-	print_stack(b);
-	rotate(&a);
-	rotate(&b);
-	rr(&a, &b);
-	print_stack(a);
-	print_stack(b);
-	rev_rotate(&a);
-	rev_rotate(&b);
-	rev_rr(&a, &b);
-	print_stack(a);
-	print_stack(b);
 	ft_putnbr_fd(len_stack(a), 1);
-	ft_putnbr_fd(len_stack(b), 1);
+	ft_putstr_fd("\n", 1);
 	}
-*/
+	stack_is_sort(a);
 //find max sort substack and push mid, >mid, <mid in stack b
-	ft_putstr_fd("tut\n", 1);
 	predsort(&a, &b);
 	//sort(a,b);
 }

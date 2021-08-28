@@ -38,5 +38,6 @@ void	rev_rotate(t_elem **lst);
 void	rev_rr(t_elem **a, t_elem **b);
 //predsort
 void	predsort(t_elem **a, t_elem **b);
+void	push_elem_in_stack_a(t_elem **a, t_elem **b, t_elem *start, t_elem *end);
 
 #endif
