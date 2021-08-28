@@ -15,7 +15,7 @@ typedef struct s_elem
 	int				var;
 	int				elem_score;
 	char			name;
-	char			middle;
+	int				middle;
 	struct s_elem	*next;
 	struct s_elem	*prev;
 }					t_elem;
@@ -40,4 +40,5 @@ void	rev_rr(t_elem **a, t_elem **b);
 //predsort
 void	predsort(t_elem **a, t_elem **b);
 char	define_operation(t_elem *a, t_elem *b, t_elem *start, t_elem *end);
+void	sort(int *mas, int size);
 #endif

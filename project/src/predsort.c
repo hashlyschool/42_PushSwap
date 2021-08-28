@@ -82,16 +82,46 @@ void	find_max_substack(t_elem **a, t_elem **start, t_elem **end)
 }
 
 //Эта функция находит средний элемент (не среднее арифметическое!)
-// и делает в нужном элементе списка операцию 'temp->middle = 1;'
-void	find_mid(t_elem *a)
+// и делает в нужном элементе списка операцию
+//Больше среднего - 'temp->middle = 3'
+//средний - 'temp->middle = 2;'
+//Меньше среднего - 'temp->middle = 1'
+void	find_mid(t_elem **a)
 {
-	a = 0;
-}//не готово
+	size_t	len_arr;
+	int		*arr;
+	size_t	i;
+
+	i = 0;
+	len_arr = len_stack(*a);
+	arr = (int *)malloc(sizeof(int) * len_arr);
+	while (i < len_arr)
+	{
+		arr[i] = (*a)->var;
+		i++;
+		*a = (*a)->prev;
+	}
+	sort(arr, len_arr);
+	while ((*a)->middle == 0)
+	{
+		if ((*a)->var > arr[len_arr / 2])
+			(*a)->middle = 3;
+		else if ((*a)->var == arr[len_arr / 2])
+			(*a)->middle = 2;
+		else
+			(*a)->middle = 1;
+		*a = (*a)->prev;
+	}
+	ft_putstr_fd("middle = ", 1);
+	ft_putnbr_fd(arr[len_arr / 2], 1);
+	ft_putstr_fd("\n", 1);
+	free(arr);
+}
 
 /*
 Функция принимает ссылки на стек 'a', стек 'b'
 Ф-я должна переносит в стек 'b' все элементы, последовательности, найденной в функции 'find_max_substack'.
-правило переноса в стек 'b': элементы больше среднего, средний элемент, элементы меньше среднего.
+правило переноса в стек 'b': элементы больше среднего, средний элемент и элементы меньше среднего.
 */
 void	predsort(t_elem **a, t_elem **b)
 {
@@ -99,11 +129,9 @@ void	predsort(t_elem **a, t_elem **b)
 	t_elem	*end;
 	char	operation;
 
-	//Эта функция находит средний элемент (не среднее арифметическое!)
-	// и делает в нужной элементе списка операцию 'temp->middle = 1;'
-	find_mid(*a);//не готово
+	find_mid(a); //готово
 	find_max_substack(a, &start, &end); //готово
-	operation = define_operation(*a, *b, start, end); //не готово
+	operation = define_operation(*a, *b, start, end); //готово
 	while (operation)
 	{
 		if (operation == 1)
