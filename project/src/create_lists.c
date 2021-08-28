@@ -6,6 +6,7 @@ void	new_elem(t_elem **lst, int var)
 	if (*lst == NULL)
 		ft_error_malloc(*lst, "Error malloc\n");
 	(*lst)->name = 'a';
+	(*lst)->middle = 0;
 	(*lst)->var = var;
 	(*lst)->next = *lst;
 	(*lst)->prev = *lst;
@@ -20,6 +21,7 @@ void push_back(t_elem **lst, int var)
 		ft_error_malloc(*lst, "Error malloc\n");
 	temp->var = var;
 	temp->name = 'a';
+	temp->middle = 0;
 	last_lst = (*lst)->next;
 	(*lst)->next = temp;
 	last_lst->prev = temp;
