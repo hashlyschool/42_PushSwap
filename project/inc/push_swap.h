@@ -45,6 +45,7 @@ void	sort_array(int *mas, int size);
 //sort
 void	sort_stacks(t_elem **a, t_elem **b);
 void	find_scores(t_elem **a, t_elem **b);
+int		find_q_rev(t_elem **a, int var);
 void	zero_scores(t_elem **b);
 void	finish_sort(t_elem **a);
 #endif

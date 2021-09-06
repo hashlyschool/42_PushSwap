@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 	predsort(&a, &b); //вроде готово, надо тестить, но на первый взгляд - все работает
 	sort_stacks(&a,&b); //не готово
 
-	//test print
+	/*//test print
 	{
 	ft_putstr_fd("\n", 1);
 	print_stack(b);
@@ -68,5 +68,5 @@ int	main(int argc, char **argv)
 	ft_putnbr_fd(len_stack(a), 1);
 	ft_putstr_fd("\n", 1);
 	}
-	//end test print
+	//end test print*/
 }

@@ -1,31 +1,5 @@
 #include "push_swap.h"
 
-int		find_q_rev(t_elem **a, int var)
-{
-	int		score;
-	int		score_rev;
-	t_elem	*temp;
-
-	score = 0;
-	score_rev = 0;
-	temp = *a;
-	while (!(temp->var > var && temp->next->var < var))
-	{
-		score++;
-		temp = temp->prev;
-	}
-	temp = *a;
-	while (!(temp->var > var && temp->next->var < var))
-	{
-		score_rev--;
-		temp = temp->next;
-	}
-	if (score > score_rev * -1)
-		return score_rev;
-	else
-		return score;
-}
-
 int		find_pos(t_elem **b, int var)
 {
 	int		score;
