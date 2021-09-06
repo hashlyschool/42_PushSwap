@@ -101,7 +101,7 @@ void	find_mid(t_elem **a)
 		i++;
 		*a = (*a)->prev;
 	}
-	sort(arr, len_arr);
+	sort_array(arr, len_arr);
 	while ((*a)->middle == 0)
 	{
 		if ((*a)->var > arr[len_arr / 2])

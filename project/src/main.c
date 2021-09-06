@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 	stack_is_sort(a);
 //find max sort substack and push mid, >mid, <mid in stack b
 	predsort(&a, &b); //вроде готово, надо тестить, но на первый взгляд - все работает
-	//sort(a,b); //не готово
+	sort_stacks(&a,&b); //не готово
 
 	//test print
 	{

@@ -1,3 +1,4 @@
 *.o
 checker
 push_swap
+*.a

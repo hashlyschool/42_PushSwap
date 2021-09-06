@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	sort(int *num, int size)
+void	sort_array(int *num, int size)
 {
 	int	i;
 	int	j;
