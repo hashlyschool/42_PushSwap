@@ -63,7 +63,7 @@ void	finish_sort(t_elem **a)
 {
 	while (!((*a)->middle < 3 && (*a)->next->middle > 1))
 	{
-		if ((*a)->middle == 1)
+		if ((*a)->middle < 3)
 			rev_rotate(a);
 		else
 			rotate(a);

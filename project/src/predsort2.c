@@ -49,10 +49,17 @@ char	check_elem_in_substack(t_elem *a, t_elem *start, t_elem *end)
 
 char	stack_b_is_sort(t_elem *b)
 {
-	t_elem	*temp;
-
 	if (!b)
 		return (1);
+	else if (b == b->next)
+		return (1);
+	else if (b->middle == 1)
+		return (0);
+	else
+		return (1);
+	/*
+	t_elem	*temp;
+
 	temp = b;
 	while (temp->prev != b)
 	{
@@ -62,6 +69,7 @@ char	stack_b_is_sort(t_elem *b)
 			return (0);
 	}
 	return (1);
+	*/
 }
 
 //возвращает 1, если выгоднее использовать ra (т.е. двигаясь вперед быстрее
@@ -121,9 +129,11 @@ char	define_operation(t_elem *a, t_elem *b, t_elem *start, t_elem *end)
 			else
 				return (0);
 		}
-		else if (find_steps(a, start, end))
+		else
+			return (2);
+		/*else if (find_steps(a, start, end)) //надо написать поиск как лучше сделать: реверсить по одной снизу или всю последовательность бахнуть вниз и потом пушить остатки вниз
 			return (2);
 		else
-			return (5);
+			return (5);*/
 	}
 }

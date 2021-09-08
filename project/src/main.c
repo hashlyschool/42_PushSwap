@@ -50,8 +50,14 @@ int	main(int argc, char **argv)
 	check_doubles(a);
 	stack_is_sort(a);
 //find max sort substack and push mid, >mid, <mid in stack b
-	predsort(&a, &b); //вроде готово, надо тестить, но на первый взгляд - все работает
-	sort_stacks(&a,&b); //не готово
+	if (argc >= 6)
+	{
+		predsort(&a, &b); //вроде готово, надо тестить, но на первый взгляд - все работает
+		sort_stacks(&a,&b); //не готово
+	}
+	/*else
+		minisort(&a, &b);
+	*/
 
 	/*//test print
 	{

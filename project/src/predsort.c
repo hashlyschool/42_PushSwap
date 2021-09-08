@@ -66,7 +66,7 @@ void	find_max_substack(t_elem **a, t_elem **start, t_elem **end)
 		temp = &((*temp)->next);
 	}
 	go_circle(*temp, start, end, &len);
-	/*{
+	{
 		ft_putstr_fd("start = ", 1);
 		ft_putnbr_fd((*start)->var, 1);
 		ft_putstr_fd("\nend = ", 1);
@@ -77,7 +77,7 @@ void	find_max_substack(t_elem **a, t_elem **start, t_elem **end)
 		//Перекидываю в стек 'b' все, кроме последовательности.
 		//Вверху стека 'b' элементы больше среднего
 		//Внизу стека 'b' элементы меньше среднего
-	}*/
+	}
 	return ;
 }
 
@@ -112,16 +112,16 @@ void	find_mid(t_elem **a)
 			(*a)->middle = 1;
 		*a = (*a)->prev;
 	}
-	/*ft_putstr_fd("middle = ", 1);
+	ft_putstr_fd("middle = ", 1);
 	ft_putnbr_fd(arr[len_arr / 2], 1);
-	ft_putstr_fd("\n", 1);*/
+	ft_putstr_fd("\n", 1);
 	free(arr);
 }
 
 /*
 Функция принимает ссылки на стек 'a', стек 'b'
 Ф-я должна переносит в стек 'b' все элементы, последовательности, найденной в функции 'find_max_substack'.
-правило переноса в стек 'b': элементы больше среднего, средний элемент и элементы меньше среднего.
+правило переноса в стек 'b': элементы больше среднего и средний элемент и элементы меньше среднего.
 */
 void	predsort(t_elem **a, t_elem **b)
 {
