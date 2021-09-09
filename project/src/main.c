@@ -49,16 +49,18 @@ int	main(int argc, char **argv)
 	create_lists(&a, &b, argc, argv);
 	check_doubles(a);
 	stack_is_sort(a);
+	find_mid(&a); //готово
 //find max sort substack and push mid, >mid, <mid in stack b
-	if (argc >= 6)
+	if (argc > 6)
 	{
 		predsort(&a, &b); //вроде готово, надо тестить, но на первый взгляд - все работает
-		sort_stacks(&a,&b); //не готово
+		sort_stacks(&a,&b); //работает, но иногда глючит. надо найти ошибку
 	}
-	/*else
-		minisort(&a, &b);
-	*/
-
+	else
+	{
+		mini_predsort(&a, &b);
+		sort_stacks(&a,&b); //переписать эту хуйню, есть ошибка в свапе
+	}
 	/*//test print
 	{
 	ft_putstr_fd("\n", 1);

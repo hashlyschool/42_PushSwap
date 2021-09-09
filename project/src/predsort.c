@@ -129,7 +129,6 @@ void	predsort(t_elem **a, t_elem **b)
 	t_elem	*end;
 	char	operation;
 
-	find_mid(a); //готово
 	find_max_substack(a, &start, &end); //готово
 	operation = define_operation(*a, *b, start, end); //готово
 	while (operation)

@@ -11,7 +11,8 @@ OBJS_PATH	= ./objs/
 
 SRCS_NAME	=	main.c check_errors.c exit_func.c create_lists.c \
 				stack_operations1.c stack_operations2.c \
-				predsort.c predsort2.c sort.c sort2.c sort3.c
+				predsort.c predsort2.c sort.c sort2.c sort3.c \
+				minisort.c
 SRCS		= $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 OBJS		= $(addprefix $(OBJS_PATH), $(SRCS_NAME:.c=.o))
 
