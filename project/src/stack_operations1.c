@@ -20,21 +20,24 @@ size_t	len_stack(t_elem *lst)
 
 void	swap(t_elem **lst)
 {
-	t_elem	*start;
-	t_elem	*last;
+	t_elem	*lst_prev;
+	t_elem	*next_1;
+	t_elem	*prev_2;
 	size_t	len;
 
 	len = len_stack(*lst);
 	if (len > 2)
 	{
-		start = *lst;
-		last = (*lst)->next;
-		(*lst) = (*lst)->prev;
-		start->next = (*lst);
-		start->prev = (*lst)->prev;
-		(*lst)->next = last;
-		(*lst)->prev = start;
-		last->prev = *lst;
+		lst_prev = (*lst)->prev;
+		next_1 = (*lst)->next;
+		prev_2 = lst_prev->prev;
+		(*lst)->next = lst_prev;
+		(*lst)->prev = prev_2;
+		lst_prev->next = next_1;
+		lst_prev->prev = (*lst);
+		next_1->prev = lst_prev;
+		prev_2->next = (*lst);
+		(*lst) = lst_prev;
 	}
 	else if (len == 2)
 		*lst = (*lst)->prev;
