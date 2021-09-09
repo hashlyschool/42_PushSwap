@@ -96,8 +96,8 @@ void	sort_stacks(t_elem **a, t_elem **b)
 {
 	while (*b)
 	{
-		find_scores(a, b); //найти скоры
-		operation(a, b); //реверсы по скорам
+		find_scores(a, b); //найти скоры ??
+		operation(a, b); //реверсы по скорам ??
 		zero_scores(b);
 		push(b, a); // пушим из б в а
 	}

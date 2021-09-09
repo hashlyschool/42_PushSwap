@@ -129,11 +129,9 @@ char	define_operation(t_elem *a, t_elem *b, t_elem *start, t_elem *end)
 			else
 				return (0);
 		}
-		else
-			return (2);
-		/*else if (find_steps(a, start, end)) //надо написать поиск как лучше сделать: реверсить по одной снизу или всю последовательность бахнуть вниз и потом пушить остатки вниз
+		else if (find_steps(a, start, end)) //надо написать поиск как лучше сделать: реверсить по одной снизу или всю последовательность бахнуть вниз и потом пушить остатки вниз
 			return (2);
 		else
-			return (5);*/
+			return (5);
 	}
 }

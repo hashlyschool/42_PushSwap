@@ -40,7 +40,6 @@ void	find_scores(t_elem **a, t_elem **b)
 		temp->score_b = find_pos(b, temp->var);
 		temp = temp->next;
 	}
-
 }
 
 void	zero_scores(t_elem **b)

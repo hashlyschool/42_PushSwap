@@ -55,7 +55,7 @@ check()
 
 set_random_arg() {
 	ARG=`python3 -c "import random; \
-		print(' '.join(str(i) for i in random.sample(range(-2111222333, 2111222333), $1)))"`
+		print(' '.join(str(i) for i in random.sample(range(-2147483648, 2147483647), $1)))"`
 	# echo "$ARG"
 }
 
