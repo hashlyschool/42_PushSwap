@@ -26,15 +26,15 @@ t_elem	*find_min_score(t_elem **b)
 	temp = *b;
 	min = *b;
 	if (temp->score_a * temp->score_b > 0)
-		score = ft_max(temp->score_a, temp->score_b);
+		score = ft_max(ft_abs(temp->score_a), ft_abs(temp->score_b));
 	else
-		score = temp->score_a - temp->score_b;
+		score = ft_abs(temp->score_a) + ft_abs(temp->score_b);
 	score_min = score;
 	temp = temp->next;
 	while (temp != *b)
 	{
 		if (temp->score_a * temp->score_b > 0)
-			score = ft_max(temp->score_a, temp->score_b);
+			score = ft_max(ft_abs(temp->score_a), ft_abs(temp->score_b));
 		else
 			score = ft_abs(temp->score_a) + ft_abs(temp->score_b);
 		if (score < score_min)

@@ -63,6 +63,11 @@ void	push(t_elem **from, t_elem **in)
 		temp->prev = *in;
 		temp->next = *in;
 	}
+	#ifdef PRINT_INFO
+		ft_putstr_fd("size stack = ", 1);
+		ft_putnbr_fd(len_stack(*from), 1);
+		ft_putstr_fd("\n", 1);
+	#endif
 }
 
 void	rev_rotate(t_elem **lst)

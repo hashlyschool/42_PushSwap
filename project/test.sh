@@ -60,7 +60,7 @@ set_random_arg() {
 }
 
 ps_checker() {
-	RESULT=$(./push_swap $ARG 2>&1 | ./checker $ARG 2>&1 | tail -1)
+	RESULT=$(./push_swap $ARG 2>&1 | ./checker_linux $ARG 2>&1 | tail -1)
 	COUNT=$(./push_swap $ARG 2>&1 | wc -l)
 
 	printf "Test #%-2d    [%5d]    " $TEST_ID $COUNT

@@ -8,7 +8,8 @@
 # include "../libft/includes/libft.h"
 
 //for printf
-#include <stdio.h>
+# include <stdio.h>
+//# define PRINT_INFO
 
 typedef struct s_elem
 {

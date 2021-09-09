@@ -66,20 +66,18 @@ void	find_max_substack(t_elem **a, t_elem **start, t_elem **end)
 		temp = &((*temp)->next);
 	}
 	go_circle(*temp, start, end, &len);
-	{
-		/*
+	#ifdef PRINT_INFO
 		ft_putstr_fd("start = ", 1);
 		ft_putnbr_fd((*start)->var, 1);
 		ft_putstr_fd("\nend = ", 1);
 		ft_putnbr_fd((*end)->var, 1);
 		ft_putstr_fd("\n", 1);
-		*/
 		//Нашел только одну из двух последовательностей,
 		//возрастающую, если двигаться назад по стеку
 		//Перекидываю в стек 'b' все, кроме последовательности.
 		//Вверху стека 'b' элементы больше среднего
 		//Внизу стека 'b' элементы меньше среднего
-	}
+	#endif
 	return ;
 }
 
@@ -114,12 +112,12 @@ void	find_mid(t_elem **a)
 			(*a)->middle = 1;
 		*a = (*a)->prev;
 	}
-	/*
-	ft_putstr_fd("middle = ", 1);
-	ft_putnbr_fd(arr[len_arr / 2], 1);
-	ft_putstr_fd("\n", 1);
+	#ifdef PRINT_INFO
+		ft_putstr_fd("middle = ", 1);
+		ft_putnbr_fd(arr[len_arr / 2], 1);
+		ft_putstr_fd("\n", 1);
+	#endif
 	free(arr);
-	*/
 }
 
 /*
