@@ -60,12 +60,14 @@ set_random_arg() {
 }
 
 ps_checker() {
-	RESULT=$(./push_swap $ARG 2>&1 | ./checker_linux $ARG 2>&1 | tail -1)
-	COUNT=$(./push_swap $ARG 2>&1 | wc -l)
-
-	printf "Test #%-2d    [%5d]    " $TEST_ID $COUNT
-	check OK
-	echo
+  SECONDS=0
+  "./push_swap" $ARG 2>&1 > push_swap_result.txt
+  RESULT=`"./checker_linux" $ARG 2>&1 < push_swap_result.txt`
+  COUNT=`cat push_swap_result.txt | wc -l`
+  TIME_TEST=$SECONDS
+  printf "Test #%-2d    [%5d]    [%(%M:%S)T]    " $TEST_ID $COUNT $TIME_TEST
+  check OK
+  echo
 }
 
 run_random() {
@@ -108,6 +110,8 @@ main() {
 
 	title "ADVANCED VERSION (random 500)"
 	run_random $NBR_TEST_3 500
+
+	rm -rf push_swap_result.txt
 
 	echo
 }

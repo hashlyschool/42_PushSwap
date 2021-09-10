@@ -15,7 +15,7 @@ int		find_pos(t_elem **b, int var)
 		temp = temp->prev;
 	}
 	temp = *b;
-	while (temp->var != var)
+	while (temp->var != var && -score_rev < score + 2)
 	{
 		score_rev--;
 		temp = temp->next;

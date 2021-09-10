@@ -53,10 +53,10 @@ char	stack_b_is_sort(t_elem *b)
 		return (1);
 	else if (b == b->next)
 		return (1);
-	else if (b->middle == 1)
+	else if (b->middle == 1 && b->prev->middle > 1)
 		return (0);
 	else
-		return (1);
+		return (1); //если следующий тоже 1??
 	/*
 	t_elem	*temp;
 

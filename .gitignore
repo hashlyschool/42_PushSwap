@@ -3,3 +3,6 @@ checker
 push_swap
 *.a
 out.txt
+input.txt
+push_swap_result.txt
+push_swap_tester

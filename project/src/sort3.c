@@ -55,13 +55,13 @@ int		find_q_rev(t_elem **a, int var)
 	score = 0;
 	score_rev = 0;
 	temp = *a;
-	while (condition_sort3(temp, var) && temp != (*a)->next) //условие - говно
+	while (condition_sort3(temp, var) && temp != (*a)->next)
 	{
 		score++;
 		temp = temp->prev;
 	}
 	temp = *a;
-	while (condition_sort3(temp, var) && temp != (*a)->prev)
+	while (condition_sort3(temp, var) && temp != (*a)->prev && -score_rev < score + 2)
 	{
 		score_rev--;
 		temp = temp->next;

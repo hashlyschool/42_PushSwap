@@ -56,6 +56,7 @@ int	main(int argc, char **argv)
 	else
 		mini_predsort(&a, &b);
 	sort_stacks(&a,&b); //переписать эту хуйню, есть ошибка в свапе
+
 	#ifdef PRINT_INFO
 		ft_putstr_fd("\n", 1);
 		print_stack(b);
