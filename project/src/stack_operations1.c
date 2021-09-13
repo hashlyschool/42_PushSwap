@@ -52,13 +52,13 @@ void	ss(t_elem **a, t_elem **b, char print)
 	if (len_stack(*a) > 1)
 	{
 		(*a)->prev->name = ' ';
-		swap(a, 1);
+		swap(a, 0);
 		(*a)->name = 'a';
 	}
 	if (len_stack(*b) > 1)
 	{
 		(*b)->prev->name = ' ';
-		swap(b, 1);
+		swap(b, 0);
 		(*b)->name = 'b';
 	}
 	if (print)

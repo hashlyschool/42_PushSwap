@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define BUFFER_SIZE 32
+# define BUFFER_SIZE 1
 //for exit
 # include <stdlib.h>
 //for MaxInt, MinInt
@@ -55,5 +55,5 @@ void	finish_sort(t_elem **a);
 int		ft_sheck_rtn(char *surplus);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin_free(char *surplus, char *buf);
-int		get_next_line(int fd, char **line);
+char	*get_next_line(int fd);
 #endif

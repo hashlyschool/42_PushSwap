@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static char	*ft_get_surplus(char *surplus)
+static char	*ft_get_surplus(char *surplus, char **buf)
 {
 	char	*str;
 	int		i;
@@ -8,14 +8,15 @@ static char	*ft_get_surplus(char *surplus)
 
 	i = 0;
 	j = 0;
+	free(*buf);
 	if (!surplus)
-		return (0);
+		return (NULL);
 	while (surplus[i] && surplus[i] != '\n')
 		i++;
 	if (!surplus[i])
 	{
 		free(surplus);
-		return (0);
+		return (NULL);
 	}
 	str = malloc(sizeof(char) * ((ft_strlen(surplus) - i) + 1));
 	if (!str)
@@ -32,34 +33,39 @@ static char	*ft_get_str(char *surplus)
 {
 	int		i;
 	char	*surplus_end;
+	int		len;
 
 	i = 0;
 	if (!surplus)
-		return (0);
+		return (NULL);
 	while (surplus[i] && surplus[i] != '\n')
+		i++;
+	if (surplus[i] == '\n')
 		i++;
 	surplus_end = malloc(sizeof(char) * (i + 1));
 	if (!surplus_end)
-		return (0);
+		return (NULL);
+	len = i;
 	i = 0;
-	while (surplus[i] && surplus[i] != '\n')
+	while (i < len)
 	{
 		surplus_end[i] = surplus[i];
 		i++;
 	}
-	surplus_end[i] = '\0';
+	surplus_end[len] = '\0';
 	return (surplus_end);
 }
 
-static char	*ft_malloc_check_error(int fd, char **str)
+static char	*ft_malloc_check_error(int fd, ssize_t *nbr)
 {
 	char	*buf;
 
-	if (fd < 0 || !str || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
+	*nbr = 1;
 	return (buf);
 }
 
@@ -77,27 +83,31 @@ static ssize_t	ft_read_in_buf(int fd, char **buf)
 	return (rtn_read);
 }
 
-int	get_next_line(int fd, char **str)
+char	*get_next_line(int fd)
 {
 	static char	*surplus;
 	char		*buf;
 	ssize_t		rtn_read;
+	char		*str;
 
-	buf = ft_malloc_check_error(fd, str);
+	buf = ft_malloc_check_error(fd, &rtn_read);
 	if (!buf)
-		return (-1);
-	rtn_read = 1;
+		return (NULL);
 	while (!(ft_sheck_rtn(surplus)) && rtn_read != 0)
 	{
 		rtn_read = ft_read_in_buf(fd, &buf);
 		if (rtn_read == -1)
-			return (-1);
+			return (NULL);
 		surplus = ft_strjoin_free(surplus, buf);
 		if (!surplus)
-			return (-1);
+			return (NULL);
 	}
-	*str = ft_get_str(surplus);
-	surplus = ft_get_surplus(surplus);
-	free(buf);
-	return (!!rtn_read);
+	str = ft_get_str(surplus);
+	surplus = ft_get_surplus(surplus, &buf);
+	if (rtn_read == 0 && ft_strlen(str) == 0)
+	{
+		free(str);
+		return (NULL);
+	}
+	return (str);
 }
