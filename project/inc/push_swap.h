@@ -1,11 +1,13 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# define BUFFER_SIZE 32
 //for exit
 # include <stdlib.h>
 //for MaxInt, MinInt
 # include <limits.h>
 # include "../libft/includes/libft.h"
+# include <unistd.h>
 
 //for printf
 # include <stdio.h>
@@ -29,6 +31,7 @@ void	create_lists(t_elem **a, t_elem **b, int argc, char **argv);
 //exit_func
 void	ft_error_arg(char *str);
 void	ft_error_malloc(t_elem *lst, char *str);
+void	ft_error_malloc_not_exit(t_elem *lst, char *str);
 void	stack_is_sort(t_elem *a);
 //Working with a list
 size_t	len_stack(t_elem *lst);
@@ -51,4 +54,9 @@ void	find_scores(t_elem **a, t_elem **b);
 int		find_q_rev(t_elem **a, int var);
 void	zero_scores(t_elem **b);
 void	finish_sort(t_elem **a);
+//cheker
+int		ft_sheck_rtn(char *surplus);
+size_t	ft_strlen(const char *str);
+char	*ft_strjoin_free(char *surplus, char *buf);
+int		get_next_line(int fd, char **line);
 #endif

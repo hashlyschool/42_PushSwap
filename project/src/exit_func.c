@@ -6,6 +6,27 @@ void	ft_error_arg(char *str)
 	exit (0);
 }
 
+void	ft_error_malloc_not_exit(t_elem *lst, char *str)
+{
+	t_elem	*prev, *next;
+
+	ft_putstr_fd(str, 1);
+	while (lst)
+	{
+		if (lst == lst->next)
+		{
+			free(lst);
+			return ;
+		}
+		prev = lst->prev;
+		next = lst->next;
+		prev->next = lst->next;
+		next->prev = lst->prev;
+		free(lst);
+		lst = next;
+	}
+}
+
 void	ft_error_malloc(t_elem *lst, char *str)
 {
 	t_elem	*prev, *next;
