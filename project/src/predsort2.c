@@ -56,20 +56,7 @@ char	stack_b_is_sort(t_elem *b)
 	else if (b->middle == 1 && b->prev->middle > 1)
 		return (0);
 	else
-		return (1); //если следующий тоже 1??
-	/*
-	t_elem	*temp;
-
-	temp = b;
-	while (temp->prev != b)
-	{
-		if (temp->middle >= temp->prev->middle)
-			temp = temp->prev;
-		else
-			return (0);
-	}
-	return (1);
-	*/
+		return (1);
 }
 
 //возвращает 1, если выгоднее использовать ra (т.е. двигаясь вперед быстрее
@@ -79,7 +66,7 @@ char	find_steps(t_elem *a, t_elem *start, t_elem *end)
 {
 	size_t	forward;
 	size_t	back;
-	t_elem *temp;
+	t_elem	*temp;
 
 	forward = 0;
 	back = 0;
@@ -101,7 +88,8 @@ char	find_steps(t_elem *a, t_elem *start, t_elem *end)
 }
 
 /*
-Функция должна анализировать стеки 'a' and 'b' и определять код необходимой операции по правилу:
+Функция должна анализировать стеки 'a' and 'b' и определять
+код необходимой операции по правилу:
 return:
 		1 - pb
 		2 - ra
@@ -120,7 +108,7 @@ char	define_operation(t_elem *a, t_elem *b, t_elem *start, t_elem *end)
 		else
 			return (3);
 	}
-	else //входит в последовательность
+	else
 	{
 		if (start->prev == end)
 		{
@@ -129,7 +117,7 @@ char	define_operation(t_elem *a, t_elem *b, t_elem *start, t_elem *end)
 			else
 				return (0);
 		}
-		else if (find_steps(a, start, end)) //надо написать поиск как лучше сделать: реверсить по одной снизу или всю последовательность бахнуть вниз и потом пушить остатки вниз
+		else if (find_steps(a, start, end))
 			return (2);
 		else
 			return (5);

@@ -8,7 +8,8 @@ void	ft_error_arg(char *str)
 
 void	ft_error_malloc_not_exit(t_elem *lst, char *str)
 {
-	t_elem	*prev, *next;
+	t_elem	*prev;
+	t_elem	*next;
 
 	ft_putstr_fd(str, 1);
 	while (lst)
@@ -29,7 +30,8 @@ void	ft_error_malloc_not_exit(t_elem *lst, char *str)
 
 void	ft_error_malloc(t_elem *lst, char *str)
 {
-	t_elem	*prev, *next;
+	t_elem	*prev;
+	t_elem	*next;
 
 	ft_putstr_fd(str, 1);
 	while (lst)
@@ -51,17 +53,18 @@ void	ft_error_malloc(t_elem *lst, char *str)
 
 void	stack_is_sort(t_elem *a)
 {
-	t_elem	*temp1, *temp2;
+	t_elem	*temp1;
+	t_elem	*temp2;
 	char	sort;
 
 	temp1 = a;
 	sort = 0;
-	while(temp1 != a->next)
+	while (temp1 != a->next)
 	{
 		temp2 = temp1->prev;
 		if (temp1->var > temp2->var)
-			return ; //stack is not sort\n
+			return ;
 		temp1 = temp1->prev;
 	}
-	ft_error_malloc(a, ""); //"stack is sort\n"
+	ft_error_malloc(a, "");
 }

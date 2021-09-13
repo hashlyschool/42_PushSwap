@@ -2,7 +2,7 @@
 
 void	new_elem(t_elem **lst, int var)
 {
-	*lst = (t_elem*)malloc(sizeof(t_elem));
+	*lst = (t_elem *)malloc(sizeof(t_elem));
 	if (*lst == NULL)
 		ft_error_malloc(*lst, "Error malloc\n");
 	(*lst)->name = 'a';
@@ -12,11 +12,12 @@ void	new_elem(t_elem **lst, int var)
 	(*lst)->prev = *lst;
 }
 
-void push_back(t_elem **lst, int var)
+void	push_back(t_elem **lst, int var)
 {
-	t_elem	*temp, *last_lst;
+	t_elem	*temp;
+	t_elem	*last_lst;
 
-	temp = (t_elem*)malloc(sizeof(t_elem));
+	temp = (t_elem *)malloc(sizeof(t_elem));
 	if (*lst == NULL)
 		ft_error_malloc(*lst, "Error malloc\n");
 	temp->var = var;
@@ -29,7 +30,7 @@ void push_back(t_elem **lst, int var)
 	temp->prev = *lst;
 }
 
-void add_elem(t_elem **lst, int var)
+void	add_elem(t_elem **lst, int var)
 {
 	if (*lst == NULL)
 		new_elem(lst, var);
@@ -44,7 +45,7 @@ void	create_lists(t_elem **a, t_elem **b, int argc, char **argv)
 	i = 1;
 	*b = 0;
 	*a = 0;
-	while(i < argc)
+	while (i < argc)
 	{
 		add_elem(a, ft_atoi(argv[i]));
 		i++;

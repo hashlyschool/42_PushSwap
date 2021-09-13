@@ -34,12 +34,7 @@ void	mini_predsort(t_elem **a, t_elem **b)
 
 	len = len_stack(*a);
 	while (len-- - 3)
-		push(a, b);
+		push(a, b, 1);
 	if (!stack_a_is_sort(*a))
-		swap(a);
-	//для 5
-	//переносим пока в a не будет 3 элемента	2
-	//сортируем стек a							1
-	//переносим обратно							2
-	//крутим стек								6
+		swap(a, 1);
 }

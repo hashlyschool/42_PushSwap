@@ -50,9 +50,12 @@ void	go_circle(t_elem *a, t_elem **start, t_elem **end, size_t *len)
 	}
 }
 
-/*Функция принимает стек 'а', ссылки на стартовый и конечный элемент стека, которые нужно заполнить.
-Функция ищет в стеке 'а' максимальную условно отформатированную последовательность элементов,
-записывает в входные переменные 'start' и 'end' ссылки на нужные элементы стека 'a'*/
+/*
+	Функция принимает стек 'а', ссылки на стартовый и конечный элемент
+стека, которые нужно заполнить. Функция ищет в стеке 'а' максимальную
+условно отформатированную последовательность элементов, записывает в
+входные переменные 'start' и 'end' ссылки на нужные элементы стека 'a'
+*/
 void	find_max_substack(t_elem **a, t_elem **start, t_elem **end)
 {
 	size_t	len;
@@ -66,26 +69,16 @@ void	find_max_substack(t_elem **a, t_elem **start, t_elem **end)
 		temp = &((*temp)->next);
 	}
 	go_circle(*temp, start, end, &len);
-	#ifdef PRINT_INFO
-		ft_putstr_fd("start = ", 1);
-		ft_putnbr_fd((*start)->var, 1);
-		ft_putstr_fd("\nend = ", 1);
-		ft_putnbr_fd((*end)->var, 1);
-		ft_putstr_fd("\n", 1);
-		//Нашел только одну из двух последовательностей,
-		//возрастающую, если двигаться назад по стеку
-		//Перекидываю в стек 'b' все, кроме последовательности.
-		//Вверху стека 'b' элементы больше среднего
-		//Внизу стека 'b' элементы меньше среднего
-	#endif
 	return ;
 }
 
-//Эта функция находит средний элемент (не среднее арифметическое!)
-// и делает в нужном элементе списка операцию
-//Больше среднего - 'temp->middle = 3'
-//средний - 'temp->middle = 2;'
-//Меньше среднего - 'temp->middle = 1'
+/*
+Эта функция находит средний элемент (не среднее арифметическое!)
+и делает в нужном элементе списка операцию
+Больше среднего - 'temp->middle = 3'
+средний - 'temp->middle = 2;'
+Меньше среднего - 'temp->middle = 1'
+*/
 void	find_mid(t_elem **a)
 {
 	size_t	len_arr;
@@ -112,18 +105,15 @@ void	find_mid(t_elem **a)
 			(*a)->middle = 1;
 		*a = (*a)->prev;
 	}
-	#ifdef PRINT_INFO
-		ft_putstr_fd("middle = ", 1);
-		ft_putnbr_fd(arr[len_arr / 2], 1);
-		ft_putstr_fd("\n", 1);
-	#endif
 	free(arr);
 }
 
 /*
 Функция принимает ссылки на стек 'a', стек 'b'
-Ф-я должна переносит в стек 'b' все элементы, последовательности, найденной в функции 'find_max_substack'.
-правило переноса в стек 'b': элементы больше среднего и средний элемент и элементы меньше среднего.
+Ф-я должна переносит в стек 'b' все элементы, последовательности,
+найденной в функции 'find_max_substack'. Правило переноса в
+стек 'b': элементы больше среднего и средний элемент
+и элементы меньше среднего.
 */
 void	predsort(t_elem **a, t_elem **b)
 {
@@ -131,24 +121,24 @@ void	predsort(t_elem **a, t_elem **b)
 	t_elem	*end;
 	char	operation;
 
-	find_max_substack(a, &start, &end); //готово
-	operation = define_operation(*a, *b, start, end); //готово
+	find_max_substack(a, &start, &end);
+	operation = define_operation(*a, *b, start, end);
 	while (operation)
 	{
 		if (operation == 1)
-			push(a, b); //готово
+			push(a, b, 1);
 		else if (operation == 2)
-			rotate(a); //готово
+			rotate(a, 1);
 		else if (operation == 3)
-			rotate(b); //готово
+			rotate(b, 1);
 		else if (operation == 4)
-			rr(a, b); //готово
+			rr(a, b, 1);
 		else if (operation == 5)
-			rev_rotate(a); //готово
+			rev_rotate(a, 1);
 		else if (operation == 6)
-			rev_rotate(b); //готово
+			rev_rotate(b, 1);
 		else if (operation == 7)
-			rev_rr(a, b); //готово
+			rev_rr(a, b, 1);
 		operation = define_operation(*a, *b, start, end);
 	}
 }

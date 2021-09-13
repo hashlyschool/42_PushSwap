@@ -18,7 +18,7 @@ size_t	len_stack(t_elem *lst)
 	return (len);
 }
 
-void	swap(t_elem **lst)
+void	swap(t_elem **lst, char print)
 {
 	t_elem	*lst_prev;
 	t_elem	*next_1;
@@ -41,52 +41,51 @@ void	swap(t_elem **lst)
 	}
 	else if (len == 2)
 		*lst = (*lst)->prev;
-	if ((*lst) && (*lst)->name == 'a')
+	if ((*lst) && (*lst)->name == 'a' && print)
 		ft_putstr_fd("sa\n", 1);
-	else if ((*lst) && (*lst)->name == ' ')
-		return ;
-	else
+	else if (print)
 		ft_putstr_fd("sb\n", 1);
 }
 
-void	ss(t_elem **a, t_elem **b)
+void	ss(t_elem **a, t_elem **b, char print)
 {
 	if (len_stack(*a) > 1)
 	{
 		(*a)->prev->name = ' ';
-		swap(a);
+		swap(a, 1);
 		(*a)->name = 'a';
 	}
 	if (len_stack(*b) > 1)
 	{
 		(*b)->prev->name = ' ';
-		swap(b);
+		swap(b, 1);
 		(*b)->name = 'b';
 	}
-	ft_putstr_fd("ss\n", 1);
+	if (print)
+		ft_putstr_fd("ss\n", 1);
 	return ;
 }
 
-void	rotate(t_elem **lst)
+void	rotate(t_elem **lst, char print)
 {
 	if (*lst && len_stack(*lst) > 1)
 	{
 		*lst = (*lst)->prev;
-		if ((*lst)->name == 'a')
+		if ((*lst)->name == 'a' && print)
 			ft_putstr_fd("ra\n", 1);
-		else
+		else if (print)
 			ft_putstr_fd("rb\n", 1);
 	}
 	return ;
 }
 
-void	rr(t_elem **a, t_elem **b)
+void	rr(t_elem **a, t_elem **b, char print)
 {
 	if (*a && len_stack(*a) > 1)
 		*a = (*a)->prev;
 	if (*b && len_stack(*b) > 1)
 		*b = (*b)->prev;
-	if (*a || *b)
+	if ((*a || *b) && print)
 		ft_putstr_fd("rr\n", 1);
 	return ;
 }

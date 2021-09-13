@@ -1,13 +1,13 @@
 #include "push_swap.h"
 
-void	argv_is_numeric(char **argv)
+void	argv_is_numeric(int argc, char **argv)
 {
 	int	i;
 	int	a;
-	int first;
+	int	first;
 
 	i = 1;
-	while (argv[i] != NULL)
+	while (argc-- - 1)
 	{
 		a = 0;
 		first = 1;
@@ -22,11 +22,13 @@ void	argv_is_numeric(char **argv)
 				ft_error_arg("Error\n");
 			a++;
 		}
+		if (a == 0)
+			ft_error_arg("Error\n");
 		i++;
 	}
 }
 
-int		max_int(const char *str)
+int	max_int(const char *str)
 {
 	unsigned long	result;
 	size_t			i;
@@ -66,18 +68,18 @@ void	argv_is_int(char **argv)
 	}
 }
 
-
 void	check_errors(int argc, char **argv)
 {
 	if (argc < 2)
 		exit(0);
-	argv_is_numeric(argv);
+	argv_is_numeric(argc, argv);
 	argv_is_int(argv);
 }
 
 void	check_doubles(t_elem *lst)
 {
-	t_elem	*temp, *temp2;
+	t_elem	*temp;
+	t_elem	*temp2;
 
 	temp = lst;
 	while (temp != lst->next)

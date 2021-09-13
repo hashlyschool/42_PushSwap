@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int		find_pos(t_elem **b, int var)
+int	find_pos(t_elem **b, int var)
 {
 	int		score;
 	int		score_rev;
@@ -21,9 +21,9 @@ int		find_pos(t_elem **b, int var)
 		temp = temp->next;
 	}
 	if (score > score_rev * -1)
-		return score_rev;
+		return (score_rev);
 	else
-		return score;
+		return (score);
 }
 
 void	find_scores(t_elem **a, t_elem **b)
@@ -63,8 +63,8 @@ void	finish_sort(t_elem **a)
 	while (!((*a)->middle < 3 && (*a)->next->middle > 1))
 	{
 		if ((*a)->middle < 3)
-			rev_rotate(a);
+			rev_rotate(a, 1);
 		else
-			rotate(a);
+			rotate(a, 1);
 	}
 }
