@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hashly <hashly@students.21-school.ru>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/14 10:48:23 by hashly            #+#    #+#             */
+/*   Updated: 2021/09/14 10:48:24 by hashly           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -55,5 +67,5 @@ void	finish_sort(t_elem **a);
 int		ft_sheck_rtn(char *surplus);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin_free(char *surplus, char *buf);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, char free_surplus);
 #endif

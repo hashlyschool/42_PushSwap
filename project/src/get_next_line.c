@@ -56,10 +56,16 @@ static char	*ft_get_str(char *surplus)
 	return (surplus_end);
 }
 
-static char	*ft_malloc_check_error(int fd, ssize_t *nbr)
+static char	*ft_malloc_check_error(int fd, ssize_t *nbr,
+	char free_surplus, char **surplus)
 {
 	char	*buf;
 
+	if (free_surplus)
+	{
+		free(*surplus);
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -83,14 +89,14 @@ static ssize_t	ft_read_in_buf(int fd, char **buf)
 	return (rtn_read);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, char free_surplus)
 {
 	static char	*surplus;
 	char		*buf;
 	ssize_t		rtn_read;
 	char		*str;
 
-	buf = ft_malloc_check_error(fd, &rtn_read);
+	buf = ft_malloc_check_error(fd, &rtn_read, free_surplus, &surplus);
 	if (!buf)
 		return (NULL);
 	while (!(ft_sheck_rtn(surplus)) && rtn_read != 0)
